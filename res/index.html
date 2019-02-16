@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+
+	<style>
+		*{
+			font-family: 'Segoe UI';
+			box-sizing: border-box;
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			cursor: default;
+			outline: none !important
+		}
+
+		body{
+			margin: 0;
+			padding: 0;
+			background:url(img/bg.jpg);
+			background-size: cover;
+			
+			
+		}
+
+		.l-header{
+			background: #7ac142;
+		}
+
+		.l-header_logo{
+			display: block;
+
+		}
+
+		.l-upload_img{
+			box-shadow:0 0 50px rgba(0,0,0,.8);
+			border-radius: 50%;
+		}
+
+
+		.animation{
+			animation-name: animation;
+		    animation-duration: 2s;
+		    animation-iteration-count: infinite;
+		    animation-timing-function: ease-in;
+		}
+
+		@keyframes animation {
+		    0% {box-shadow:0 0 50px rgba(0,0,0,.8)}
+		    50% {box-shadow:0 0 50px rgba(0,0,0,.1)}
+		    100% {box-shadow:0 0 50px rgba(0,0,0,.8)}
+		}
+
+
+		.l-upload_btn{
+			text-transform: uppercase;
+			padding: 5px 20px;
+			
+
+			
+		}
+
+
+		
+
+		.textarea{
+			width: 95%;
+			margin: 0 auto;
+			height:150px;
+			background: #fff;
+			padding: 5px;
+			border: 1px solid rgba(122, 193, 66, 0.31);
+			font-size: 10px;
+			overflow-y:scroll; 
+		
+			
+		}
+
+
+		.l-copy{
+			font-size: 9px;
+			text-transform: uppercase;
+			color: #ccc;
+			padding: 10px;
+			text-align: center;
+			display: block;
+			color: rgba(0,0,0,.5);
+		}
+	
+	</style>
+</head>
+<body ng-app="ZKweb">
+
+	<div class="l-header">
+		<img class="l-header_logo" src="img/logo.png" width="150">
+	</div>
+	<div class="g-vsap" style="height:40px;"></div>
+	
+	<div class="l-center" ng-controller="Main">
+		
+
+		<center>
+			<img class="l-upload_img" src="img/upload.png" width="150" ng-class="{animation:mstart}">
+			<br>
+			<br>	
+			<button ng-click="start()" class="l-upload_btn" ng-hide="mstart">Start</button>
+		</center>
+	
+		<div class="g-innerwrap">
+			
+			<div class="textarea" ng-show="mstart">
+				
+				<span ng-bind-html="msg"></span>
+
+			</div>
+		</div>
+
+
+	</div>
+
+	<small class="l-copy">&copy; Developed by <strong>unicore</strong></small>
+	
+</body>
+
+	<script src="js/angular.min.js"></script>
+	<script src="js/angular-sanitize.min.js"></script>
+	<script src="js/application.js"></script>
+</html>
